@@ -87,8 +87,8 @@ CensoredMediator <- function(data,
 #' @param data Input dataset.
 #' @param outcome.type The type of the outcome in the mediation model. outcome.type="continuous" or "binary".
 #' @param casecontrol If the study is a case-control study.
-#' If outcome.type="continuous": casecontrol=FALSE
-#' If outcome.type="binary":  casecontrol=FALSE if it is not a case-control study  casecontrol=TRUE if it is a case-control study
+#' #If outcome.type="continuous": casecontrol=FALSE
+#' #If outcome.type="binary":  casecontrol=FALSE if it is not a case-control study  casecontrol=TRUE if it is a case-control study
 #' @return list(beta.opt,tmp)
 #' @export
 myBeta <- function(alpha,data,outcome.type,casecontrol)
@@ -138,11 +138,11 @@ myBeta <- function(alpha,data,outcome.type,casecontrol)
 #' @param tmp AFT model residuals by the Kaplan-Meier estimator.
 #' @param outcome.type The type of the outcome in the mediation model.  outcome.type="continuous" or "binary".
 #' @param casecontrol If the study is a case-control study.
-#'                                    If outcome.type="continuous": casecontrol=FALSE
-#'                                    If outcome.type="binary":
-#'                                              casecontrol=FALSE if it is not a case-control study
-#'                                              casecontrol=TRUE if it is a case-control study
-#'
+#' #                                   If outcome.type="continuous": casecontrol=FALSE
+#' #                                   If outcome.type="binary":
+#' #                                             casecontrol=FALSE if it is not a case-control study
+#' #                                              casecontrol=TRUE if it is a case-control study
+#' #
 #' @return negative loglikelihood
 #' @export
 loglikelihood <- function(x,data,alpha,tmp,outcome.type,casecontrol)
