@@ -3,13 +3,13 @@
 #' @param data Input dataset file in the .csv format.
 #' @param outcome.type The type of the outcome in the mediation model. outcome.type="continuous" or "binary".
 #' @param casecontrol If the study is a case-control study.
-#' If outcome.type="continuous": casecontrol=FALSE
-#'  If outcome.type="binary": casecontrol=FALSE if it is not a case-control study, casecontrol=TRUE if it is a case-control study
+#' #If outcome.type="continuous": casecontrol=FALSE
+#' #If outcome.type="binary": casecontrol=FALSE if it is not a case-control study, casecontrol=TRUE if it is a case-control study
 #' @param prev  Prevalance of the case in the general population.
-#' Set it as 0 when it is not a case-control study.
-#' Set it as a positive number when it is a case-control study.
-#' If outcome.type="continuous": casecontrol=FALSE; prev=0
-#' If outcome.type="binary": casecontrol=FALSE; prev=0 if it is not a case-control study, casecontrol=TRUE; prev!=0 if it is a case-control study
+#' #Set it as 0 when it is not a case-control study.
+#' #Set it as a positive number when it is a case-control study.
+#' #If outcome.type="continuous": casecontrol=FALSE; prev=0
+#' #If outcome.type="binary": casecontrol=FALSE; prev=0 if it is not a case-control study, casecontrol=TRUE; prev!=0 if it is a case-control study
 #' @param printout Print the estimated coefficients for different paths.
 #' @import MASS
 #' @import dplyr
