@@ -237,21 +237,21 @@ myIE <- function(alpha,beta,tmp,data,outcome.type) {
       x<-0;xx<-0
       m.value<-(as.matrix(cbind(1,xx,data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))]))%*%alpha)[,1]+tmp$t
       v.exp<-exp(as.matrix(cbind(rep(1,mm),rep(x,mm),m.value,
-                                 bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE))
+                                 bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE)), row.names = NULL
       ))%*%beta)
       P00[i]<-sum((v.exp/(1+v.exp))*tmp$d.t)
       # X=1 for observed value and X=0 for f(m|x)
       x<-1;xx<-0
       m.value<-(as.matrix(cbind(1,xx,data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))]))%*%alpha)[,1]+tmp$t
       v.exp<-exp(as.matrix(cbind(rep(1,mm),rep(x,mm),m.value,
-                                 bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE))
+                                 bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE)), row.names = NULL
       ))%*%beta)
       P10[i]<-sum((v.exp/(1+v.exp))*tmp$d.t)
       # X=1 for observed value and X=1 for f(m|x)
       x<-1;xx<-1
       m.value<-(as.matrix(cbind(1,xx,data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))]))%*%alpha)[,1]+tmp$t
       v.exp<-exp(as.matrix(cbind(rep(1,mm),rep(x,mm),m.value,
-                                 bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE))
+                                 bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE)), row.names = NULL
       ))%*%beta)
       P11[i]<-sum((v.exp/(1+v.exp))*tmp$d.t)
 
@@ -263,21 +263,21 @@ myIE <- function(alpha,beta,tmp,data,outcome.type) {
       x<-0;xx<-0
       m.value<-(as.matrix(cbind(1,xx,data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))]))%*%alpha)[,1]+tmp$t
       v<-as.matrix(cbind(rep(1,mm),rep(x,mm),m.value,
-                         bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE))
+                         bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE)), row.names = NULL
       ))%*%beta
       P00[i]<-sum(v*tmp$d.t)
       # X=1 for observed value and X=0 for f(m|x)
       x<-1;xx<-0
       m.value<-(as.matrix(cbind(1,xx,data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))]))%*%alpha)[,1]+tmp$t
       v<-as.matrix(cbind(rep(1,mm),rep(x,mm),m.value,
-                         bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE))
+                         bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE)), row.names = NULL
       ))%*%beta
       P10[i]<-sum(v*tmp$d.t)
       # X=1 for observed value and X=1 for f(m|x)
       x<-1;xx<-1
       m.value<-(as.matrix(cbind(1,xx,data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))]))%*%alpha)[,1]+tmp$t
       v<-as.matrix(cbind(rep(1,mm),rep(x,mm),m.value,
-                         bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE))
+                         bind_rows(replicate(1, data[i,-which(names(data) %in% c('Y','M','X','delta','sweight','R'))], simplify = FALSE)), row.names = NULL
       ))%*%beta
       P11[i]<-sum(v*tmp$d.t)
     }
