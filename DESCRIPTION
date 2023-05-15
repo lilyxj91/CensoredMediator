@@ -2,10 +2,12 @@ Package: CensoredMediator
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: c(
+    person("Wang", "Jian",  role = "aut"),
+    person("Jiang", "Xinyang", email = "jiangjiang9102@outlook.com" , role="cre"),
+    )
+Maintainer:  Jiang X <jiangjiang9102@outlook.com>
+Description: The goal of CensoredMediator is analyze the mediation model with a censored mediator
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
