@@ -1,0 +1,103 @@
+---
+output: github_document
+---
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# CensoredMediator
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of CensoredMediator is analyze the mediation model with a censored mediator, described in:
+
+"Wang J, Ning J, Shete S. Mediation analysis in a case-control study when the mediator is a censored variable. Stat Med 38(7):1213-1229, 3/2019. PMCID: PMC6467083" 
+
+"Wang J, Ning J, Shete S. Mediation model with a categorical exposure and a censored mediator with application to a genetic study. PLoS One 16(10):e0257628, 2021. e-Pub 10/2021. PMCID: PMC8509986"
+
+## Installation
+
+You can install the development version of CensoredMediator like so:
+
+``` r
+library(devtools)
+devtools::install_github("lilyxj91/CensoredMediator",force = TRUE)
+```
+
+## Example
+
+
+```{r example}
+library(CensoredMediator)
+## basic example code
+```
+
+### Read the data
+
+```{r}
+### Read the data
+data<-TestData
+head(data)
+
+# where 
+# Y is the outcome;
+# X is the initial variable;
+# M is the censored mediator;
+# delta is the censored status for M (1-observed; 0-censored);
+# Z1 and Z2 are two covariates.  
+# 
+# Please arrange your data into this format, with the first four columns named as Y, X, M and delta; and then include other covariates from column five (Z1, Z2, Z3...).  
+```
+
+
+### Define the parameters
+```{r}
+## If the outcome is a continuous variable: 
+## use the following parameters
+# outcome.type<-"continuous"
+# casecontrol<-FALSE
+# prev<-0
+# boot<-200  ## number of bootstrap samples
+```
+
+```{r}
+## If the outcome is a binary variable but the study is not a case-control study: 
+## use the following parameters
+outcome.type<-"binary"
+casecontrol<-FALSE
+prev<-0
+boot<-200  ## number of bootstrap samples
+```
+
+```{r}
+## If the outcome is a binary variable and the study is a case-control study:
+## use the following parameters
+# outcome.type<-"binary"
+# casecontrol<-TRUE
+# prev<-0.12 ## prevalence of the disease (case) in general population; non-zero for a case-control study
+# boot<-200  ## number of bootstrap samples
+```
+
+
+### Calculate the coefficients for each paths
+```{r}
+(results.tmp<-CensoredMediator(data,outcome.type,casecontrol,prev,printout=TRUE))
+
+(IE.results<-results.tmp[[3]])
+
+### Calculate the indirect effect (IE) and percentage mediated (PM)
+### and their corresponding 95% confidence intervals using bootstrapping
+### May take hours or days to run depending on the number of bootstrap samples
+(results.boot<-mybootstrap(data,IE.results,boot,outcome.type,casecontrol,prev,printout=FALSE))
+
+```
+

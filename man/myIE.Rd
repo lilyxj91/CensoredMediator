@@ -2,8 +2,7 @@
 % Please edit documentation in R/CensoredMediatorCodes.R
 \name{myIE}
 \alias{myIE}
-\title{Title myIE
-## Description:        Calculate the indirect effect (IE) and percentage mediated. Called by "CensoredMediator".}
+\title{myIE}
 \usage{
 myIE(alpha, beta, tmp, data, outcome.type)
 }
@@ -22,6 +21,5 @@ myIE(alpha, beta, tmp, data, outcome.type)
 data.frame(IE,DE,TE,PM)
 }
 \description{
-Title myIE
-## Description:        Calculate the indirect effect (IE) and percentage mediated. Called by "CensoredMediator".
+Calculate the indirect effect (IE) and percentage mediated. Called by "CensoredMediator".
 }

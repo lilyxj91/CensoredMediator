@@ -2,8 +2,7 @@
 % Please edit documentation in R/CensoredMediatorCodes.R
 \name{myBeta}
 \alias{myBeta}
-\title{Title myBeta
-Description:        Calculate the coefficients for Y~X+M. Called by "CensoredMediator".}
+\title{myBeta}
 \usage{
 myBeta(alpha, data, outcome.type, casecontrol)
 }
@@ -22,6 +21,5 @@ If outcome.type="binary":  casecontrol=FALSE if it is not a case-control study  
 list(beta.opt,tmp)
 }
 \description{
-Title myBeta
-Description:        Calculate the coefficients for Y~X+M. Called by "CensoredMediator".
+Calculate the coefficients for Y~X+M. Called by "CensoredMediator".
 }

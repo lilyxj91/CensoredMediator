@@ -2,8 +2,7 @@
 % Please edit documentation in R/CensoredMediatorCodes.R
 \name{mybootstrap}
 \alias{mybootstrap}
-\title{Title mybootstrap
-Calculate the 95% confidence interval for indirect effect (IE) and percentage mediated using bootstrapping.}
+\title{mybootstrap}
 \usage{
 mybootstrap(
   data_hold,
@@ -44,6 +43,5 @@ If outcome.type="binary":
 list(CI_IE=CI_IE,CI_PM=CI_PM)
 }
 \description{
-Title mybootstrap
-Calculate the 95% confidence interval for indirect effect (IE) and percentage mediated using bootstrapping.
+Calculate the 95\% confidence interval for indirect effect (IE) and percentage mediated using bootstrapping.
 }

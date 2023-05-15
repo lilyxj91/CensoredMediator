@@ -1,16 +1,19 @@
-#' Title CensoredMediator
-#' Description Analyze a mediation model with a censored mediator
+#'  CensoredMediator
+#'
+#' Analyze a mediation model with a censored mediator
+#'
 #' @param data Input dataset file in the .csv format.
 #' @param outcome.type The type of the outcome in the mediation model. outcome.type="continuous" or "binary".
 #' @param casecontrol If the study is a case-control study.
-#' #If outcome.type="continuous": casecontrol=FALSE
-#' #If outcome.type="binary": casecontrol=FALSE if it is not a case-control study, casecontrol=TRUE if it is a case-control study
+#'                    If outcome.type="continuous": casecontrol=FALSE
+#'                    If outcome.type="binary": casecontrol=FALSE if it is not a case-control study, casecontrol=TRUE if it is a case-control study
 #' @param prev  Prevalance of the case in the general population.
-#' #Set it as 0 when it is not a case-control study.
-#' #Set it as a positive number when it is a case-control study.
-#' #If outcome.type="continuous": casecontrol=FALSE; prev=0
-#' #If outcome.type="binary": casecontrol=FALSE; prev=0 if it is not a case-control study, casecontrol=TRUE; prev!=0 if it is a case-control study
+#'              Set it as 0 when it is not a case-control study.
+#'              Set it as a positive number when it is a case-control study.
+#'              If outcome.type="continuous": casecontrol=FALSE; prev=0
+#'              If outcome.type="binary": casecontrol=FALSE; prev=0 if it is not a case-control study, casecontrol=TRUE; prev!=0 if it is a case-control study
 #' @param printout Print the estimated coefficients for different paths.
+#'
 #' @import MASS
 #' @import dplyr
 #' @import survival
@@ -81,14 +84,16 @@ CensoredMediator <- function(data,
 
 
 
-#' Title myBeta
-#' Description:        Calculate the coefficients for Y~X+M. Called by "CensoredMediator".
+#'  myBeta
+#'
+#'  Calculate the coefficients for Y~X+M. Called by "CensoredMediator".
+#'
 #' @param alpha Coefficients estimated for M~X.
 #' @param data Input dataset.
 #' @param outcome.type The type of the outcome in the mediation model. outcome.type="continuous" or "binary".
 #' @param casecontrol If the study is a case-control study.
-#' #If outcome.type="continuous": casecontrol=FALSE
-#' #If outcome.type="binary":  casecontrol=FALSE if it is not a case-control study  casecontrol=TRUE if it is a case-control study
+#'                    If outcome.type="continuous": casecontrol=FALSE
+#'                    If outcome.type="binary":  casecontrol=FALSE if it is not a case-control study  casecontrol=TRUE if it is a case-control study
 #' @return list(beta.opt,tmp)
 #' @export
 myBeta <- function(alpha,data,outcome.type,casecontrol)
@@ -130,19 +135,21 @@ myBeta <- function(alpha,data,outcome.type,casecontrol)
 
 
 
-#' Title loglikelihood
-#' Description:        Calculate the coefficients for Y~X+M. Called by "myBeta".
+#'  loglikelihood
+#'
+#' Calculate the coefficients for Y~X+M. Called by "myBeta".
+#'
 #' @param x  Initial values for parameters to be optimized over.
 #' @param data Input dataset.
 #' @param alpha Coefficients estimated for M~X.
 #' @param tmp AFT model residuals by the Kaplan-Meier estimator.
 #' @param outcome.type The type of the outcome in the mediation model.  outcome.type="continuous" or "binary".
 #' @param casecontrol If the study is a case-control study.
-#' #                                   If outcome.type="continuous": casecontrol=FALSE
-#' #                                   If outcome.type="binary":
-#' #                                             casecontrol=FALSE if it is not a case-control study
-#' #                                              casecontrol=TRUE if it is a case-control study
-#' #
+#'                                    If outcome.type="continuous": casecontrol=FALSE
+#'                                    If outcome.type="binary":
+#'                                              casecontrol=FALSE if it is not a case-control study
+#'                                               casecontrol=TRUE if it is a case-control study
+#'
 #' @return negative loglikelihood
 #' @export
 loglikelihood <- function(x,data,alpha,tmp,outcome.type,casecontrol)
@@ -215,8 +222,10 @@ loglikelihood <- function(x,data,alpha,tmp,outcome.type,casecontrol)
 
 
 
-#' Title myIE
-#' ## Description:        Calculate the indirect effect (IE) and percentage mediated. Called by "CensoredMediator".
+#'  myIE
+#'
+#'  Calculate the indirect effect (IE) and percentage mediated. Called by "CensoredMediator".
+#'
 #' @param alpha Coefficients estimated for M~X.
 #' @param beta Coefficients estimated for Y~X+M.
 #' @param tmp AFT model residuals by the Kaplan-Meier estimator.
@@ -296,8 +305,9 @@ myIE <- function(alpha,beta,tmp,data,outcome.type) {
 
 
 
-#' Title mybootstrap
-#' Calculate the 95% confidence interval for indirect effect (IE) and percentage mediated using bootstrapping.
+#' mybootstrap
+#'
+#' Calculate the 95\% confidence interval for indirect effect (IE) and percentage mediated using bootstrapping.
 #'
 #' @param data_hold Input dataset.
 #' @param IE.star Estimated IE and PM, obtained from "CensoredMediator".

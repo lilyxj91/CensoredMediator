@@ -2,8 +2,7 @@
 % Please edit documentation in R/CensoredMediatorCodes.R
 \name{loglikelihood}
 \alias{loglikelihood}
-\title{Title loglikelihood
-Description:        Calculate the coefficients for Y~X+M. Called by "myBeta".}
+\title{loglikelihood}
 \usage{
 loglikelihood(x, data, alpha, tmp, outcome.type, casecontrol)
 }
@@ -22,12 +21,11 @@ loglikelihood(x, data, alpha, tmp, outcome.type, casecontrol)
 If outcome.type="continuous": casecontrol=FALSE
 If outcome.type="binary":
           casecontrol=FALSE if it is not a case-control study
-          casecontrol=TRUE if it is a case-control study}
+           casecontrol=TRUE if it is a case-control study}
 }
 \value{
 negative loglikelihood
 }
 \description{
-Title loglikelihood
-Description:        Calculate the coefficients for Y~X+M. Called by "myBeta".
+Calculate the coefficients for Y~X+M. Called by "myBeta".
 }

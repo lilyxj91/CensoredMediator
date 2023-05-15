@@ -2,8 +2,7 @@
 % Please edit documentation in R/CensoredMediatorCodes.R
 \name{CensoredMediator}
 \alias{CensoredMediator}
-\title{Title CensoredMediator
-Description Analyze a mediation model with a censored mediator}
+\title{CensoredMediator}
 \usage{
 CensoredMediator(data, outcome.type, casecontrol, prev, printout)
 }
@@ -14,7 +13,7 @@ CensoredMediator(data, outcome.type, casecontrol, prev, printout)
 
 \item{casecontrol}{If the study is a case-control study.
 If outcome.type="continuous": casecontrol=FALSE
- If outcome.type="binary": casecontrol=FALSE if it is not a case-control study, casecontrol=TRUE if it is a case-control study}
+If outcome.type="binary": casecontrol=FALSE if it is not a case-control study, casecontrol=TRUE if it is a case-control study}
 
 \item{prev}{Prevalance of the case in the general population.
 Set it as 0 when it is not a case-control study.
@@ -28,6 +27,5 @@ If outcome.type="binary": casecontrol=FALSE; prev=0 if it is not a case-control 
 list(alpha.hat,beta.opt,IE.results)
 }
 \description{
-Title CensoredMediator
-Description Analyze a mediation model with a censored mediator
+Analyze a mediation model with a censored mediator
 }
